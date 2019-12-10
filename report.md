@@ -6,8 +6,46 @@
 
 ## Алгоритм ##
 
+```
+На каждой итерации цикла (t = 1, 2,... ) {
+    Возьмем Таблицу Антитетики S
+
+}
+```
+
+Как же находить таблицу антитетики? Очень Просто:
+Покажем на примере задачи бинарной классификации($y_i \in$ {1, -1})
+
+Имеем
+Samples = [{x0, y0}, {x1, y1}, ..., {x_(n-1), y_(n-1)}]
+
+```
+def count_dist(sample_1, sample_2):
+    return abs(sample_1[0]*sample_1[1]*sample_2[0][0]*sample_2[0][1])
+
+def NearestNeighbor(sample, DB):
+    nearest_dist = count_dist(sample, DB[0])
+    min_obj = DB[0]
+    for obj in DB:
+        new_dist = count_dist(sample, obj)
+        if new_dist < nearest_dist:
+            nearest_dist = new_dist
+            min_obj = obj
+    return min_obj
+
+def Calculate_antithetic_table(samples):
+    table = np.zeros(n)
+    DB = [(Samples[i], i) for i in range(n)]
+    for i in range(n):
+        sample_id = NearestNeighbor(Samples[i], DB)
+        table[i] = sample_id[1]
+        DB.erase(sample_id)
+    return table
+```
+
 ## О полигоне, тестах и сравниваемых алгоритмах ##
 См. .ipynb 
+
 ## Результаты ##
 
 ## Вывод ##
