@@ -8,7 +8,7 @@
 
 ```
 def calculate_path_len(n): # какая-то функция определенеия длины шага
-    rerutn 1.0 / n
+    return 1.0 / n
 
 # sample -  наши известные значения для задачи классификации,
 # start_value - стартовый вектор
@@ -51,11 +51,9 @@ def Calculate_antithetic_table(samples):
     n = len(samples)
     table = np.zeros(n)
     DB = [(Samples[i], i) for i in range(n)]
-    prev_sample = None
     for i in range(n):
         sample_id = NearestNeighbor(Samples[i], DB, Samples[i-1] if i > 0 else None)
         table[i] = sample_id[1]
-        prev_sample = Samples[0]
         DB.erase(sample_id)
     return table
 ```
@@ -63,7 +61,7 @@ def Calculate_antithetic_table(samples):
 ## О полигоне, тестах и сравниваемых алгоритмах ##
 См. .ipynb
 
-Тесты: - 
+Тесты: Описание TODO
 
 ## Результаты ##
 
